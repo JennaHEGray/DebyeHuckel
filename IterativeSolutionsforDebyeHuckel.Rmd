@@ -1,0 +1,24 @@
+---
+title: "Iterative Solutions for Debye Huckel Equation"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+## Introduction
+
+If the activity coefficients or ionic strength of a solute in solution is known, the other value can be solved for. However, if neither are known, iterative solutions must be employed to determine both the activity coefficients and the ionic strength. 
+
+## Solving for Activity Coefficients-Jenna Eubanks-Gray
+
+I will be using the $\mu$ calculated in the previous section, the hydrated radii from the database, and the charge of the ion in the Debye-Huckel equation shown in Equation (2). 
+
+log($\gamma$)=$\frac{-0.51z^2\sqrt{\alpha}}{1+0.33\alpha\sqrt{\gamma}}$    (2)
+
+The activity coefficient will then be used to calculate the ionic strength. Step 1 and Step 2 will continue until the answers produced from Step 2 are the same to within 10^(-6) of the last step. I will also be designing the code to read in the needed values from the database. An example problem has been conducted below to demonstrate how the equation calculations will appear.  
+
+```{r}
+10^(-0.51*(1^2)*sqrt(1.3*10^(-5)))/(1+0.33*(25)*(1.3*10^(-5)))
+```
+
