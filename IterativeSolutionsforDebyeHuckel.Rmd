@@ -84,5 +84,12 @@ if Difference>0.1:
     Difference = ActivityCoefficient1 - ActivityCoefficient3
     print(Difference)
 else: 
-  print(ActivityCoefficient1)
+  print(ActivityCoefficient)
+  
+
+Table1 = pd.read_csv("Computingproject.csv",
+                 index_col=0)
+print(Table1["CHARGE"]["Li"])                 
+#print(Table1.loc["Ce4",:])
+#the above line can be uncommented to find both charge and alpha for each ion
 ```
