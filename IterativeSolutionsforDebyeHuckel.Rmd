@@ -51,3 +51,38 @@ H+       +1        900
 Table1<- read.csv("Computingproject.csv", header=TRUE)
 print(Table1)
 ```
+
+```{python}
+if Difference>0.1:
+  def Step2():
+    import math
+    mu1 = 0.78
+    charge1 = 1
+    alpha1 = 0.000013
+    sqrtmu1 = math.sqrt(mu1)
+    radius1 = 25
+    ActivityCoefficient1 = 10**(-0.51*(charge1**2)*(sqrtmu1))/(1+alpha1*(sqrtmu1)/radius1)
+    
+    mu2 = 0.65
+    charge2 = 3
+    alpha2 = 0.000018
+    sqrtmu2 = math.sqrt(mu2)
+    radius2 = 30
+    ActivityCoefficient2 = 10**(-0.51*(charge2**2)*(sqrtmu2))/(1+alpha2*(sqrtmu2)/radius2)
+    
+    mu3 = 0.89
+    alpha3 = 0.000013
+    sqrtmu3 = math.sqrt(mu3)
+    radius1 = 25
+    ActivityCoefficient3 = 10**(-0.51*(charge1**2)*(sqrtmu3))/(1+alpha1*(sqrtmu3)/radius1)
+    
+    mu4 = 0.77
+    alpha4 = 0.000018 
+    sqrtmu4 = math.sqrt(mu4)
+    radius = 25
+    ActivityCoefficient4 = 10**(-0.51*(charge2**2)*(sqrtmu4))/(1+alpha2*(sqrtmu4)/radius2)
+    Difference = ActivityCoefficient1 - ActivityCoefficient3
+    print(Difference)
+else: 
+  print(ActivityCoefficient1)
+```
