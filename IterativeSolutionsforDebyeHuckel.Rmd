@@ -53,43 +53,33 @@ print(Table1)
 ```
 
 ```{python}
-if Difference>0.1:
-  def Step2():
-    import math
-    mu1 = 0.78
-    charge1 = 1
-    alpha1 = 0.000013
-    sqrtmu1 = math.sqrt(mu1)
-    radius1 = 25
-    ActivityCoefficient1 = 10**(-0.51*(charge1**2)*(sqrtmu1))/(1+alpha1*(sqrtmu1)/radius1)
-    
-    mu2 = 0.65
-    charge2 = 3
-    alpha2 = 0.000018
-    sqrtmu2 = math.sqrt(mu2)
-    radius2 = 30
-    ActivityCoefficient2 = 10**(-0.51*(charge2**2)*(sqrtmu2))/(1+alpha2*(sqrtmu2)/radius2)
-    
-    mu3 = 0.89
-    alpha3 = 0.000013
-    sqrtmu3 = math.sqrt(mu3)
-    radius1 = 25
-    ActivityCoefficient3 = 10**(-0.51*(charge1**2)*(sqrtmu3))/(1+alpha1*(sqrtmu3)/radius1)
-    
-    mu4 = 0.77
-    alpha4 = 0.000018 
-    sqrtmu4 = math.sqrt(mu4)
-    radius = 25
-    ActivityCoefficient4 = 10**(-0.51*(charge2**2)*(sqrtmu4))/(1+alpha2*(sqrtmu4)/radius2)
-    Difference = ActivityCoefficient1 - ActivityCoefficient3
-    print(Difference)
-else: 
-  print(ActivityCoefficient)
-  
-
+import math 
+import pandas as pd 
+Difference = 1 
 Table1 = pd.read_csv("Computingproject.csv",
                  index_col=0)
 print(Table1["CHARGE"]["Li"])                 
 #print(Table1.loc["Ce4",:])
 #the above line can be uncommented to find both charge and alpha for each ion
+
+sqrtmu = math.sqrt(mu) 
+activitycoefficienta = 10**(-0.51*(charge1**2)*(sqrtmu1))/(1+alpha1*(sqrtmu1)/radius1) 
+activitycoefficientb = 10**(-0.51*(charge2**2)*(sqrtmu1))/(1+alpha2*(sqrtmu1)/radius2) 
+
+while Difference>0.00001: 
+   #Step 2: Jenna   
+   def Step2():  
+     sqrtmuA = math.sqrt(muA) 
+     activitycoefficientc = 10**(-0.51*(charge1**2)*(sqrtmuA))/(1+alpha1*(sqrtmuA)/radius1) 
+     activitycoefficientd = 10**(-0.51*(charge2**2)*(sqrtmuA))/(1+alpha2*(sqrtmuA)/radius2) 
+     Step2() 
+     
+    #Step 4: Jenna  
+    def Step4():   
+      sqrtmuB = math.sqrt(muB) 
+      activitycoefficienta = 10**(-0.51*(charge1**2)*(sqrtmuA))/(1+alpha1*(sqrtmuA)/radius1) 
+      activitycoefficientb = 10**(-0.51*(charge2**2)*(sqrtmuA))/(1+alpha2*(sqrtmuA)/radius2) 
+      Step4() 
+      
+    Difference = activitycoefficientb - activitycoefficientd   
 ```
