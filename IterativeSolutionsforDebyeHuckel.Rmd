@@ -58,28 +58,65 @@ import pandas as pd
 Difference = 1 
 Table1 = pd.read_csv("Computingproject.csv",
                  index_col=0)
-print(Table1["CHARGE"]["Li"])                 
+##print(Table1["CHARGE"]["Li"])                 
 #print(Table1.loc["Ce4",:])
 #the above line can be uncommented to find both charge and alpha for each ion
+
+ion1 = input("Enter name of ion in solution: ") 
+ion2 = input("Enter name of second ion in solution:") 
+concentration = float(input("Enter concentration of solution:")) 
+compound = input("Enter the chemical formula of the compound in solution") 
+
+##concentration2 = float(input("Enter concentration of second solution:")
+
+print(ion1) 
+print(ion2) 
+charge1 = Table1["CHARGE"][ion1] 
+charge2 = Table1["CHARGE"][ion2] 
+alpha1 = Table1["$ALPHA$"][ion1] 
+alpha2 = Table1["$ALPHA$"][ion2] 
+ksp = Table1["KSP"][compound] 
+activitycoefficient1 = 1 
+activitycoefficient2 = 1 
+activity1 = math.sqrt(ksp//(activitycoefficient1*activitycoefficient2)) 
+activity2 = math.sqrt(ksp//(activitycoefficient1*activitycoefficient2)) 
+mu = 1/2(concentration1*(charge1)**2 + concentration2*(charge2)**2) 
 
 sqrtmu = math.sqrt(mu) 
 activitycoefficienta = 10**(-0.51*(charge1**2)*(sqrtmu1))/(1+alpha1*(sqrtmu1)/radius1) 
 activitycoefficientb = 10**(-0.51*(charge2**2)*(sqrtmu1))/(1+alpha2*(sqrtmu1)/radius2) 
 
 while Difference>0.00001: 
+    #Step 1: Brynne 
+    def Step1(): 
+      activitya = math.sqrt(ksp//(activitycoefficienta*activitycoefficientb)) 
+      activityb = math.sqrt(ksp//(activitycoefficienta*activitycoefficientb)) 
+      muA = 1/2(activitya*(charge1)**2 + activityb*(charge2)**2) 
+  
+    Step1() 
+    
    #Step 2: Jenna   
    def Step2():  
      sqrtmuA = math.sqrt(muA) 
      activitycoefficientc = 10**(-0.51*(charge1**2)*(sqrtmuA))/(1+alpha1*(sqrtmuA)/radius1) 
      activitycoefficientd = 10**(-0.51*(charge2**2)*(sqrtmuA))/(1+alpha2*(sqrtmuA)/radius2) 
-     Step2() 
+   Step2() 
+     
+    #Step 3: Brynne 
+
+    def Step3(): 
+      activityc = math.sqrt(ksp//(activitycoefficientc*activitycoefficientd)) 
+      activityd = math.sqrt(ksp//(activitycoefficientc*activitycoefficientd)) 
+      muB = 1/2(activityc*(charge1)**2 + activityd*(charge2)**2) 
+      
+    Step3() 
      
     #Step 4: Jenna  
     def Step4():   
       sqrtmuB = math.sqrt(muB) 
       activitycoefficienta = 10**(-0.51*(charge1**2)*(sqrtmuA))/(1+alpha1*(sqrtmuA)/radius1) 
       activitycoefficientb = 10**(-0.51*(charge2**2)*(sqrtmuA))/(1+alpha2*(sqrtmuA)/radius2) 
-      Step4() 
+    Step4() 
       
     Difference = activitycoefficientb - activitycoefficientd   
 ```
