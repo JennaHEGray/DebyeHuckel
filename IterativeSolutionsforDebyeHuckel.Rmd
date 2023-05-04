@@ -62,10 +62,10 @@ Table1 = pd.read_csv("Computingproject.csv",
 #print(Table1.loc["Ce4",:])
 #the above line can be uncommented to find both charge and alpha for each ion
 
-ion1 = input("Enter name of ion in solution: ") 
-ion2 = input("Enter name of second ion in solution:") 
-concentration = float(input("Enter concentration of solution:")) 
-compound = input("Enter the chemical formula of the compound in solution") 
+ion1 = "Enter first ion here"
+ion2 = "Enter second ion here"
+concentration = Enterconcentrationhere
+compound = "Enter compound here"
 
 ##concentration2 = float(input("Enter concentration of second solution:")
 
@@ -92,27 +92,22 @@ while Difference>0.00001:
   activityb = math.sqrt(ksp/(activitycoefficienta*activitycoefficientb))
   muA = 1/2*(activitya*(charge1)**2 + activityb*(charge2)**2)
     
-   #Step 2: Jenna   
-   def Step2():  
-     sqrtmuA = math.sqrt(muA) 
-     activitycoefficientc = 10**(-0.51*(charge1**2)*(sqrtmuA))/(1+alpha1*(sqrtmuA)/radius1) 
-     activitycoefficientd = 10**(-0.51*(charge2**2)*(sqrtmuA))/(1+alpha2*(sqrtmuA)/radius2) 
+  #Step 2: Jenna   
+  sqrtmuA = math.sqrt(muA)
+  activitycoefficientc = 10**(-0.51*(charge1**2)*(sqrtmuA))/(1+alpha1*(sqrtmuA)/305)
+  activitycoefficientd = 10**(-0.51*(charge2**2)*(sqrtmuA))/(1+alpha2*(sqrtmuA)/305)
      
-    #Step 3: Brynne 
+  #Step 3: Brynne 
   activityc = math.sqrt(ksp/(activitycoefficientc*activitycoefficientd))
   activityd = math.sqrt(ksp/(activitycoefficientc*activitycoefficientd))
   muB = 1/2*(activityc*(charge1)**2 + activityd*(charge2)**2)
       
-
-     
-    #Step 4: Jenna  
-    def Step4():   
-      sqrtmuB = math.sqrt(muB) 
-      activitycoefficienta = 10**(-0.51*(charge1**2)*(sqrtmuA))/(1+alpha1*(sqrtmuA)/radius1) 
-      activitycoefficientb = 10**(-0.51*(charge2**2)*(sqrtmuA))/(1+alpha2*(sqrtmuA)/radius2) 
-    Step4() 
+  #Step 4: Jenna  
+  sqrtmuB = math.sqrt(muB) 
+  activitycoefficienta = 10**(-0.51*(charge1**2)*(sqrtmuA))/(1+alpha1*(sqrtmuA)/305)
+  activitycoefficientb = 10**(-0.51*(charge2**2)*(sqrtmuA))/(1+alpha2*(sqrtmuA)/305)
       
-    Difference = activitycoefficientb - activitycoefficientd   
+  Difference = activitycoefficientb - activitycoefficientd   
     
 print(activitycoefficientc)
 print(activitycoefficientd)
