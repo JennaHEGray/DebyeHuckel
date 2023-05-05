@@ -47,11 +47,6 @@ a csv file will be used to import the data into the code. An example of the data
 Ion    charge   $\alpha$     
 H+       +1        900      
 
-```{r Table1}
-Table1<- read.csv("Computingproject.csv", header=TRUE)
-print(Table1)
-```
-
 ```{python}
 import math 
 import pandas as pd 
