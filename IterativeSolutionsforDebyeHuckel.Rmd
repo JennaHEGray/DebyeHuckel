@@ -56,11 +56,12 @@ print(Table1)
 import math 
 import pandas as pd 
 Difference = 1 
-Table1 = pd.read_csv("Computingproject.csv",
+Table1 = pd.read_csv("ComputingTable1.csv",
                  index_col=0)
-##print(Table1["CHARGE"]["Li"])                 
+#print(Table1["CHARGE"]["Li"])
+#print(Table1["Ksp"["CdS"])
 #print(Table1.loc["Ce4",:])
-#the above line can be uncommented to find both charge and alpha for each ion
+#the above lines can be uncommented to find both charge and alpha for each ion as well as ksp
 
 ion1 = "Enter first ion here"
 ion2 = "Enter second ion here"
