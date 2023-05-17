@@ -21,15 +21,12 @@ $\mu$= $\frac{1}{2}\sum_{1}^{n} C_{i}Z_{i}$		                                   
 
 ## Solving for Activity Coefficients-Jenna Eubanks-Gray
 
-I will be using the $\mu$ calculated in the previous section, the hydrated radii from the database, and the charge of the ion in the Debye-Huckel equation shown in Equation (2). 
+Using the $\mu$ calculated in the previous section, the hydrated radii from the database, and the charge of the ion in the Debye-Huckel equation shown in Equation (2), the activity coefficient was calculated. 
 
 log($\gamma$)=$\frac{-0.51z^2\sqrt{\alpha}}{1+0.33\alpha\sqrt{\gamma}}$    (2)
 
-The activity coefficient will then be used to calculate the ionic strength. Step 1 and Step 2 will continue until the answers produced from Step 2 are the same to within 10^(-6) of the last step. I will also be designing the code to read in the needed values from the database. An example problem has been conducted below to demonstrate how the equation calculations will appear.  
+The activity coefficient was then used to calculate the ionic strength. Step 1 and Step 2 continue until the answers produced from Step 2 are the same to within 10^(-5) of the last step. I helped design the code to read in the needed values from the database. 
 
-```{r}
-10^(-0.51*(1^2)*sqrt(1.3*10^(-5)))/(1+0.33*(25)*(1.3*10^(-5)))
-```
 ## Creating a Database-Valerie Basurto 
 
 In order to solve for both activity coefficients and for ionic strength, I will create a dictionary that will hold the constants for Ksp, $\mu$, ionic charge, and  $\alpha$, for ions in solution. These constants will be pulled from the dictionary to be used in equations 1 and 2. 
@@ -41,21 +38,19 @@ H+       +1        900
 
 ```{python}
 import math 
+#This package was required to execute the math.sqrt function in the while loop below. 
 import pandas as pd 
+#This package was required to access and pull values from the data frames containing the constants. 
 Difference = 1 
+#Difference was initially defined as 1 to allow the while loop below to run. 
+
 Table1 = pd.read_csv("ComputingTable1.csv",
                  index_col=0)
-#print(Table1["CHARGE"]["Li"])
-#print(Table1["Ksp"["CdS"])
-#print(Table1.loc["Ce4",:])
-#the above lines can be uncommented to find both charge and alpha for each ion as well as ksp
 
 ion1 = "Enter first ion here"
 ion2 = "Enter second ion here"
 concentration = Enterconcentrationhere
 compound = "Enter compound here"
-
-##concentration2 = float(input("Enter concentration of second solution:")
 
 print(ion1) 
 print(ion2) 
@@ -66,6 +61,7 @@ alpha2 = Table1["$ALPHA$"][ion2]
 ksp = Table1["Ksp"][compound] 
 activitycoefficient1 = 1
 activitycoefficient2 = 1
+#The activity coefficients are initially assumed to be 1 because they are unknown. 
 activity1 = math.sqrt(ksp/(activitycoefficient1*activitycoefficient2))
 activity2 = math.sqrt(ksp/(activitycoefficient1*activitycoefficient2))
 mu = 0.5*(concentration*(charge1)**2 + concentration*(charge2)**2)
@@ -73,7 +69,9 @@ mu = 0.5*(concentration*(charge1)**2 + concentration*(charge2)**2)
 sqrtmu = math.sqrt(mu) 
 activitycoefficienta = 10**(-0.51*(charge1**2)*(sqrtmu))/(1+alpha1*(sqrtmu)/305)
 activitycoefficientb = 10**(-0.51*(charge2**2)*(sqrtmu))/(1+alpha2*(sqrtmu)/305)
+#The above equations are used to calculate the new activity coefficients from the mu calculated above. 
 
+#The while loop below will continue until the difference, which is defined below, is less than 0.00001. 
 while Difference>0.00001:
   #Step 1: Brynne
   activitya = math.sqrt(ksp/(activitycoefficienta*activitycoefficientb))
@@ -81,6 +79,7 @@ while Difference>0.00001:
   muA = 1/2*(activitya*(charge1)**2 + activityb*(charge2)**2)
     
   #Step 2: Jenna   
+  #Step 2 and 4 are used to calculate the activity coefficients from the mu found in Step 1 and 3, the charges of the ions, and the hydrated radius. 
   sqrtmuA = math.sqrt(muA)
   activitycoefficientc = 10**(-0.51*(charge1**2)*(sqrtmuA))/(1+alpha1*(sqrtmuA)/305)
   activitycoefficientd = 10**(-0.51*(charge2**2)*(sqrtmuA))/(1+alpha2*(sqrtmuA)/305)
@@ -96,7 +95,8 @@ while Difference>0.00001:
   activitycoefficientb = 10**(-0.51*(charge2**2)*(sqrtmuA))/(1+alpha2*(sqrtmuA)/305)
       
   Difference = activitycoefficientb - activitycoefficientd   
-    
+  #This variable is defined in order to determine when the while loop should end. The while loop will end when the values calculated for the activity coefficients are very close. 
+  
 print(activitycoefficientc)
 print(activitycoefficientd)
 ```
