@@ -14,17 +14,10 @@ We created a database with the relevant and necessary constants required for det
 
 ## Solving for Ionic Strength - Brynne Wilson
 
-To use the Debye Huckel equation, the ionic strength ($\mu$) must be known. As such, I will be using the following equation for ionic strength along with the concentration of the solutes and the charge of the ions (Equation 1). I will also be working on writing the code necessary to access the constants and coefficients from the database created by Valerie required in the ionic strength equation (charge and concentration) 
+To use the Debye Huckel equation, the ionic strength ($\mu$) must be known. As such, I used the following equation for ionic strength along with the concentration of the solutes and the charge of the ions (Equation 1). I also worked on writing the code necessary to access the constants and coefficients from the database created by Valerie required in the ionic strength equation (charge and concentration) 
 
 $\mu$= $\frac{1}{2}\sum_{1}^{n} C_{i}Z_{i}$		                                                            	                                (1)  
-
-For example, if given 0.1M Na+ and 0.2M K+, $\mu$ will be 
-
-```{r} 
-
-1/2*((0.1)*(1)^2+(0.2)*(1)^2) 
-
-``` 
+ 
 
 ## Solving for Activity Coefficients-Jenna Eubanks-Gray
 
