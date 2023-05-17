@@ -46,6 +46,11 @@ Difference = 1
 
 Table1 = pd.read_csv("ComputingTable1.csv",
                  index_col=0)
+print(Table1["CHARGE"]["Li"])
+#this encodes for a data frame. By inserting "charge" into the first set of square brackets and the desired ion in the second set of square brackets, the code will search the inserted table to find the charge of the desired ion. 
+#print(Table1["Ksp"]["CdS"])
+#The above code will work similarly to line 49, however Ksp will be found for the desired ionic compounds.  
+#These can be used to find data more efficiently from a table. 
 
 ion1 = "Enter first ion here"
 ion2 = "Enter second ion here"
