@@ -10,12 +10,11 @@ knitr::opts_chunk$set(echo = TRUE)
 
 If the activity coefficients or ionic strength of a solute in solution is known, the other value can be solved for. However, if neither are known, iterative solutions must be employed to determine both the activity coefficients and the ionic strength. 
 First, the activity coefficients are assumed to be 1. The ionic strength is then calculated based on these values and the concentration of the solutes in solution. Secondly, the ionic strength and relevant coefficients can be used in the Debye-Huckel equation to solve for the activity coefficients. These coefficients can then be used to repeat Step 1. The cycle is performed until the values obtained from two successive cycles produce similar answers. 
-We plan on creating a database with the relevant and necessary constants required for determination of ionic strength and the activity coefficients for a variety of species, such as hydrated radius, solubility constants, etc. We plan on writing a program to access these constants and utilizing them in the equations for ionic strength and Debye-Huckel. We plan on writing this program in RStudio, utilizing python blocks. The primary resource utilized thus far for the necessary equations in this project is the eight edition of the "Quantitative Chemical Analysis" textbook by Daniel C. Harris. 
+We created a database with the relevant and necessary constants required for determination of ionic strength and the activity coefficients for a variety of species, such as hydrated radius, solubility constants, etc. We also wrote a program to access these constants and utilize them in the equations for ionic strength and Debye-Huckel. We wrote this program in RStudio, utilizing Python blocks. The primary resource utilized for the necessary equations in this project is the eight edition of the "Quantitative Chemical Analysis" textbook by Daniel C. Harris. 
 
 ## Solving for Ionic Strength - Brynne Wilson
 
-To use the Debye Huckel equation, the ionic strength ($\mu$) must be known. As such, I will be using the following equation for ionic strength along with the concentration of the solutes and the charge of the ions (Equation 1). I will also be working on writing the code necessary to access the constants and coefficients from the database created by Valerie required in the ionic strength equation (charge and concentration)  
-
+To use the Debye Huckel equation, the ionic strength ($\mu$) must be known. As such, I will be using the following equation for ionic strength along with the concentration of the solutes and the charge of the ions (Equation 1). I will also be working on writing the code necessary to access the constants and coefficients from the database created by Valerie required in the ionic strength equation (charge and concentration) 
 
 $\mu$= $\frac{1}{2}\sum_{1}^{n} C_{i}Z_{i}$		                                                            	                                (1)  
 
@@ -38,7 +37,7 @@ The activity coefficient will then be used to calculate the ionic strength. Step
 ```{r}
 10^(-0.51*(1^2)*sqrt(1.3*10^(-5)))/(1+0.33*(25)*(1.3*10^(-5)))
 ```
-## creating a database 
+## Creating a Database-Valerie Basurto 
 
 In order to solve for both activity coefficients and for ionic strength, I will create a dictionary that will hold the constants for Ksp, $\mu$, ionic charge, and  $\alpha$, for ions in solution. These constants will be pulled from the dictionary to be used in equations 1 and 2. 
 
