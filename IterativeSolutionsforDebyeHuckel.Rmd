@@ -77,6 +77,7 @@ while Difference>0.00001:
   activitya = math.sqrt(ksp/(activitycoefficienta*activitycoefficientb))
   activityb = math.sqrt(ksp/(activitycoefficienta*activitycoefficientb))
   muA = 1/2*(activitya*(charge1)**2 + activityb*(charge2)**2)
+#Steps 1 and 3 are calculating the ionic strength of the solution using the activities and activity coefficients defined above. 
     
   #Step 2: Jenna   
   #Step 2 and 4 are used to calculate the activity coefficients from the mu found in Step 1 and 3, the charges of the ions, and the hydrated radius. 
@@ -88,6 +89,7 @@ while Difference>0.00001:
   activityc = math.sqrt(ksp/(activitycoefficientc*activitycoefficientd))
   activityd = math.sqrt(ksp/(activitycoefficientc*activitycoefficientd))
   muB = 1/2*(activityc*(charge1)**2 + activityd*(charge2)**2)
+ #new activity coefficients utilized here
       
   #Step 4: Jenna  
   sqrtmuB = math.sqrt(muB) 
